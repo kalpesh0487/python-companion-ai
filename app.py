@@ -37,8 +37,8 @@ if __name__ == '__main__':
 
     # Create database tables
     with app.app_context():
-        # db.drop_all()  # Drop all existing tables
-        # db.create_all()  # Create tables with new schema
+        db.drop_all()  # Drop all existing tables
+        db.create_all()  # Create tables with new schema
 
         # Create initial categories
         from models import Category
@@ -49,7 +49,7 @@ if __name__ == '__main__':
             Category(name="Leaders"),
             Category(name="Innovators")
         ]
-        # db.session.add_all(categories)
-        # db.session.commit()
+        db.session.add_all(categories)
+        db.session.commit()
 
     app.run(debug=True, host='0.0.0.0', port=5000)
